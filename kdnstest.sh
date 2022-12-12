@@ -11,6 +11,7 @@ then
   sleep 8
   kubectl exec -it nginx -- apt update
   kubectl exec -it nginx -- apt install netcat -y
+  kubectl exec -it nginx -- apt install dnsutils -y
   for instance in $IPS;
     do
       for i in {1..2}; do kubectl exec -it nginx --  nc -zv $instance 53; done;
